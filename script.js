@@ -76,3 +76,20 @@ const orderItem = restaurant.order(2, 0);
 console.log(orderItem);
 const [starter, mainCourse] = restaurant.order(2, 0);
 console.log(starter, mainCourse);
+
+//Nested Destructuring
+const nested = [[5, 6], 2, 4, [9, 3, 4]];
+const [k, , , l] = nested;
+
+console.log(k, l);
+
+const [[m, i], , , [n, o, p]] = nested;
+
+console.log(m, i, n, o, p);
+
+//Default value.
+const [j, q, r] = [8, 9];
+console.log(j, q, r);
+
+const [e = 1, f = 1, g = 1] = [8, 9];
+console.log(e, f, g);
