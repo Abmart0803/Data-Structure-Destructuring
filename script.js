@@ -16,20 +16,20 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  // openingHours: {
-  //   thu: {
-  //     open: 12,
-  //     close: 22,
-  //   },
-  //   fri: {
-  //     open: 11,
-  //     close: 23,
-  //   },
-  //   sat: {
-  //     open: 0, // Open 24 hours
-  //     close: 24,
-  //   },
-  // },
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
 };
 
 const arr = [3, 7, 9];
@@ -93,3 +93,25 @@ console.log(j, q, r);
 
 const [e = 1, f = 1, g = 1] = [8, 9];
 console.log(e, f, g);
+
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+//Default values
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+//Mutating variables.
+let ab = 77;
+let bc = 88;
+//to mutate or change the number we have to wrap it inside parenthesis like below
+const obj = { ab: 34, bc: 45, cd: 56 };
+({ ab, bc } = obj);
+console.log(ab, bc);
