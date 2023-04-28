@@ -103,3 +103,15 @@ const {
   categories: tags,
 } = restaurant;
 console.log(restaurantName, hours, tags);
+
+//Default values
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+//Mutating variables.
+let ab = 77;
+let bc = 88;
+//to mutate or change the number we have to wrap it inside parenthesis like below
+const obj = { ab: 34, bc: 45, cd: 56 };
+({ ab, bc } = obj);
+console.log(ab, bc);
