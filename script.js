@@ -16,6 +16,18 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
+  orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
+    console.log(`Order received! ${this.starterMenu[starterIndex]} 
+    and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+  },
+
+  // restaurant.orderDelivery({
+  //   time: '22:30',
+  //   address: 'Via del Sole, 21',
+  //   mainIndex: 2,
+  //   starterIndex: 2,
+  // }),
+
   openingHours: {
     thu: {
       open: 12,
@@ -29,6 +41,12 @@ const restaurant = {
       open: 0, // Open 24 hours
       close: 24,
     },
+  },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`
+    );
   },
 };
 
@@ -115,3 +133,100 @@ let bc = 88;
 const obj = { ab: 34, bc: 45, cd: 56 };
 ({ ab, bc } = obj);
 console.log(ab, bc);
+
+//Nested Objects
+const {
+  fri: { open, close },
+} = openingHours;
+console.log(open, close);
+
+//The Spread Operator(...)
+
+const arr1 = [7, 8, 9];
+//suppose we want to add some elements before those 7,8,9.
+const badNewArr1 = [1, 2, 3, arr1[0], arr1[1], arr1[2]];
+console.log(badNewArr1);
+
+//we can use spread operator to make it simpler.
+const newArr1 = [1, 2, 3, ...arr1];
+console.log(newArr1);
+
+//another example.
+const tobi = [12, 14, 15, 16, 17, 18, 19, 12, 13, 14, 12, 56, 67, 87, 45, 65];
+const newTobi = [1, 2, 3, 4, 5, 6, 7, 8, ...tobi];
+console.log(newTobi);
+console.log(...newTobi);
+
+//we can also use spread operator to add element to an array like below.
+const newMenu = [...restaurant.mainMenu, 'Fufu', 'Eba', 'Amala'];
+console.log(newMenu);
+console.log(...newMenu);
+
+const newCategory = [...restaurant.categories, 'Nigerian', 'Arabian', 'Kenyan'];
+console.log(newCategory);
+console.log(...newCategory);
+
+//using spread operator to copy an array.
+const mainMenuCopy = [...restaurant.mainMenu];
+
+console.log(mainMenuCopy);
+
+//using spread operator to jon two or more array.
+const joinArray = [...restaurant.categories, ...restaurant.mainMenu];
+console.log(joinArray);
+
+//Iterables are : Arrays, strings, maps, sets, NOT Objects.
+const str = 'Martins';
+const letters = [...str];
+console.log(letters);
+console.log(...letters);
+
+//real world example
+// const ingredients = [
+//   prompt("Let's make pasta! Ingridient 1?"),
+//   prompt('Ingridient 2"'),
+//   prompt('Ingridient 3?'),
+// ];
+// console.log(ingredients);
+
+//manually.
+// restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+
+//using ES6 Syntax or spread operator/
+// restaurant.orderPasta(...ingredients);
+
+//using spread operator on Objects.
+const newRestaurant = { foundedIn: 1980, ...restaurant, founder: 'Martins' };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+
+restaurantCopy.name = 'Abmart Restaurant';
+
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
+//Rest Pattern and Parameters.
+
+//SPREAD, because on RIGHT side of = sign.
+const arr2 = [1, 2, 3, ...[4, 5]];
+
+//REST, BECAUSE ON LEFT SIDE OF = sign.
+
+const [a2, b2, ...others] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(a2, b2, others);
+console.log(a2, b2, ...others);
+
+const [pizza, , risotto, ...otherFoods] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(pizza, risotto, otherFoods);
+
+const [pizza2, risotto2, ...otherFoods2] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(pizza2, risotto2, otherFoods2);
