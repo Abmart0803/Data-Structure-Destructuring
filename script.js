@@ -48,6 +48,11 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`
     );
   },
+
+  // orderPizza: function (mainIngredient, ...otherIngredients) {
+  //   console.log(mainIngredient);
+  //   console.log(otherIngredients);
+  // },
 };
 
 const arr = [3, 7, 9];
@@ -207,6 +212,7 @@ console.log(restaurantCopy.name);
 console.log(restaurant.name);
 
 //Rest Pattern and Parameters.
+//1. Destructuring
 
 //SPREAD, because on RIGHT side of = sign.
 const arr2 = [1, 2, 3, ...[4, 5]];
@@ -230,3 +236,37 @@ const [pizza2, risotto2, ...otherFoods2] = [
 ];
 
 console.log(pizza2, risotto2, otherFoods2);
+
+//Objects.
+const { saturday, ...weekDays } = restaurant.openingHours;
+
+console.log(weekDays);
+
+//2. Funtions
+const addition = function (...num) {
+  console.log(num);
+};
+addition(2, 3, 4, 5, 6);
+addition(5, 7, 6, 8, 9, 21, 34, 45);
+addition(2, 3, 4, 5, 6, 7, 6, 8, 9, 21);
+
+//example 2. display only number not as object.
+const added = function (...num) {
+  console.log(...num);
+};
+added(2, 3, 4, 5, 6);
+added(5, 7, 6, 8, 9, 21, 34, 45);
+added(2, 3, 4, 5, 6, 7, 6, 8, 9, 21);
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+  // console.log(numbers); // will display the rest as an object
+};
+
+add(2, 3, 4, 5, 6);
+add(5, 7, 6, 8, 9, 21, 34, 45);
+add(2, 3, 4, 5, 6, 7, 6, 8, 9, 21);
+
+// restaurant.orderPizza('mushrooms', 'tomatoes', 'onions', 'red chilling' 'tatase');
