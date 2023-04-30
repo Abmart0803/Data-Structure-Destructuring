@@ -270,3 +270,14 @@ add(5, 7, 6, 8, 9, 21, 34, 45);
 add(2, 3, 4, 5, 6, 7, 6, 8, 9, 21);
 
 // restaurant.orderPizza('mushrooms', 'tomatoes', 'onions', 'red chilling' 'tatase');
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+  const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll(
+    '_',
+    ' '
+  )} ${getCode(from)} ${getCode(to)} (${time.replace(':', 'h')})`.padStart(36);
+  console.log(output);
+}
