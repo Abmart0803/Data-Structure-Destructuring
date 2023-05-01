@@ -270,36 +270,66 @@ add(5, 7, 6, 8, 9, 21, 34, 45);
 add(2, 3, 4, 5, 6, 7, 6, 8, 9, 21);
 
 // restaurant.orderPizza('mushrooms', 'tomatoes', 'onions', 'red chilling' 'tatase');
+console.log('=========== OR============');
+//logical Operation.
+//Use any data type, return any data type, short-circuiting.
+//If first value is truthy, the evaluation stop and return the truthy value.
+console.log(3 || 'Martins');
+console.log('' || 'Martins');
+console.log(true || 0);
+console.log(undefined || null);
 
-const getCode = str => str.slice(0, 3).toUpperCase();
+console.log(undefined || 0 || '' || 'Hello' || 25);
 
-for (const flight of flights.split('+')) {
-  const [type, from, to, time] = flight.split(';');
-  const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll(
-    '_',
-    ' '
-  )} ${getCode(from)} ${getCode(to)} (${time.replace(':', 'h')})`.padStart(36);
-  console.log(output);
+restaurant.numGuest = 23;
+const guest1 = restaurant.numGuest ? restaurant.numGuest : 10;
+console.log(guest1);
+
+const guest2 = restaurant.numGuest || 10;
+console.log(guest2);
+
+console.log('=========== AND ============');
+//once the first value is falsy, the evauation stop and return the falsy value, but if truthy,
+//evaluation consinut until get the firt falsy value.
+//if first valeu is truthy and there is only two values, it return the second value.
+console.log(0 && 'Martins');
+console.log(7 && 'Martins');
+console.log('hello' && 27 && null && 'Martins');
+
+//practical example.
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushroom', 'spinach');
 }
 
-const getCode2 = str => str.slice(0, 3).toUpperCase();
+restaurant.orderPizza && restaurant.orderPizza('mushroom', 'spinach');
 
-for (const flight of flights.split('+')) {
-  const [type, from, to, time] = flight.split(';');
-  const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll(
-    '_',
-    ' '
-  )} ${getCode(from)} ${getCode(to)} (${time.replace(':', 'h')})`.padStart(36);
-  console.log(output);
-}
+// Logical Assignment Operator
+const rest1 = {
+  name: 'Capri',
+  numGuest: 0,
+};
 
-const getCode3 = str => str.slice(0, 3).toUpperCase();
+const restt2 = {
+  name: 'Ab Martins',
+  owner: 'Abmart Investment',
+};
 
-for (const flight of flights.split('+')) {
-  const [type, from, to, time] = flight.split(';');
-  const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll(
-    '_',
-    ' '
-  )} ${getCode(from)} ${getCode(to)} (${time.replace(':', 'h')})`.padStart(36);
-  console.log(output);
-}
+//OR Assignment Operator.
+// rest1.numGuest = rest1.numGuest || 10;
+// restt2.numGuest = restt2.numGuest || 10;// This can be written as below code.
+
+// rest1.numGuest ||= 10;
+// restt2.numGuest ||= 10;
+
+rest1.numGuest ??= 10; //this will correct the above code to result in 0 at console.
+restt2.numGuest ??= 10;
+
+//AnD aSSIGNMENT Operator
+// rest1.owner = rest1.owner && '<ANONIMOUS>';
+// restt2.owner = restt2.owner && '<ANONIMOUS>';
+
+rest1.owner &&= '<ANONIMOUS>';
+restt2.owner &&= '<ANONIMOUS>';
+
+console.log(rest1);
+console.log(restt2);
