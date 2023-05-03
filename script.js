@@ -345,6 +345,33 @@ if (restaurant.orderPizza) {
 
 restaurant.orderPizza && restaurant.orderPizza('mushroom', 'spinach');
 
+console.log('======================================================');
+
+const menuu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menuu) console.log(item);
+//to see the index of  item.
+for (const item of menuu.entries()) {
+  console.log(item);
+}
+
+console.log(...menuu.entries());
+console.log('===================================');
+
+console.log([...menuu.entries()]);
+
+console.log('===========================================');
+
+for (const item of menuu.entries()) {
+  console.log(`${item[0] + 1}) : ${item[1]}`);
+}
+
+console.log('============================================');
+//we can also destructure the above  by replacing item with [i, el];
+for (const [i, el] of menuu.entries()) {
+  console.log(`${i + 1}) : ${el}`);
+}
+
 // Logical Assignment Operator
 const rest2 = {
   name: 'Capri',
@@ -357,6 +384,7 @@ const restt3 = {
 };
 
 /*
+Challenge 1 that cover all the data destructuring activities.
 Data Structures, Modern Operators and Strings
 Coding Challenge #1
 We're building a football betting app (soccer for my American friends 😅)!
