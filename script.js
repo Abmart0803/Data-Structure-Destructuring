@@ -357,6 +357,7 @@ const restt3 = {
 };
 
 /*
+Challenge 1 that cover all the data destructuring activities.
 Data Structures, Modern Operators and Strings
 Coding Challenge #1
 We're building a football betting app (soccer for my American friends 😅)!
