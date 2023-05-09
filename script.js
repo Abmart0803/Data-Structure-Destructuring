@@ -511,3 +511,37 @@ console.log('===========================================');
 for (const item of menuu2.entries()) {
   console.log(`${item[0] + 1}) : ${item[1]}`);
 }
+
+console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++++');
+
+//Optional Chaining (?)
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// console.log(restaurant.openingHours.mon.open);
+
+//With Optional Chaining
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+//Example.
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On${day}, we open at ${open}`);
+}
+
+//Optionak chaining on Methods.
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// Optional Chaining on Arrays
+
+const users = [
+  { name: 'Martins', email: 'infor@abmart.com', location: 'Canada' },
+];
+console.log(users[0]?.name ?? 'User array empty');
+console.log(users[0]?.age ?? 'User array empty');
+console.log(users[0]?.email ?? 'User array empty');
+console.log(users[0]?.location ?? 'User array empty');
