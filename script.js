@@ -490,3 +490,24 @@ printGoals(...game.scored);
 
 //7.
 team1 < team2 && console.log('Team1 is likely to win the game.');
+
+console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++++++');
+
+const menuu2 = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menuu2) console.log(item);
+//to see the index of  item.
+for (const item of menuu2.entries()) {
+  console.log(item);
+}
+
+console.log(...menuu2.entries());
+console.log('===================================');
+
+console.log([...menuu2.entries()]);
+
+console.log('===========================================');
+
+for (const item of menuu2.entries()) {
+  console.log(`${item[0] + 1}) : ${item[1]}`);
+}
