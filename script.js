@@ -545,3 +545,28 @@ console.log(users[0]?.name ?? 'User array empty');
 console.log(users[0]?.age ?? 'User array empty');
 console.log(users[0]?.email ?? 'User array empty');
 console.log(users[0]?.location ?? 'User array empty');
+
+//Looping Objects: Object keys, vaues and Entries.
+
+//Properties Names
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+//Properties Values.
+const values = Object.values(openingHours);
+console.log(values);
+
+//Entire Object.
+
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
