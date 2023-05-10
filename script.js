@@ -490,3 +490,95 @@ printGoals(...game.scored);
 
 //7.
 team1 < team2 && console.log('Team1 is likely to win the game.');
+
+console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++++++');
+
+const menuu2 = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menuu2) console.log(item);
+//to see the index of  item.
+for (const item of menuu2.entries()) {
+  console.log(item);
+}
+
+console.log(...menuu2.entries());
+console.log('===================================');
+
+console.log([...menuu2.entries()]);
+
+console.log('===========================================');
+
+for (const item of menuu2.entries()) {
+  console.log(`${item[0] + 1}) : ${item[1]}`);
+}
+
+console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++++');
+
+//Optional Chaining (?)
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// console.log(restaurant.openingHours.mon.open);
+
+//With Optional Chaining
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+//Example.
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On${day}, we open at ${open}`);
+}
+
+//Optionak chaining on Methods.
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// Optional Chaining on Arrays
+
+const users = [
+  { name: 'Martins', email: 'infor@abmart.com', location: 'Canada' },
+];
+console.log(users[0]?.name ?? 'User array empty');
+console.log(users[0]?.age ?? 'User array empty');
+console.log(users[0]?.email ?? 'User array empty');
+console.log(users[0]?.location ?? 'User array empty');
+
+//Looping Objects: Object keys, vaues and Entries.
+
+//Properties Names
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+//Properties Values.
+const values = Object.values(openingHours);
+console.log(values);
+
+//Entire Object.
+
+const entries2 = Object.entries(openingHours);
+console.log(entries2);
+
+for (const [key, { open, close }] of entries2) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
+
+const values2 = Object.values(openingHours);
+console.log(values);
+
+//Entire Object.
+
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
