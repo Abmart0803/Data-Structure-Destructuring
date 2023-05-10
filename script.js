@@ -564,6 +564,18 @@ console.log(values);
 
 //Entire Object.
 
+const entries2 = Object.entries(openingHours);
+console.log(entries2);
+
+for (const [key, { open, close }] of entries2) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
+
+const values2 = Object.values(openingHours);
+console.log(values);
+
+//Entire Object.
+
 const entries = Object.entries(openingHours);
 console.log(entries);
 
